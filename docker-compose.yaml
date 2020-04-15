@@ -16,6 +16,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - PERMISSION_SERVER_MODE=dev
+      - SQLALCHEMY_DATABASE_URI=postgresql://perm_server_user:${PERMISSION_SERVER_DB_PASSWORD}@postgres_db:5432/perm_server_db
     depends_on:
       - postgres_db
     command: python /app/manage.py runserver -h 0.0.0.0 -p 5000

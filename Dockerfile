@@ -5,5 +5,6 @@ RUN pip install -U pip; \
 	pip install -r /tmp/requirements.txt
 
 COPY app /app
+COPY migrations /migrations
 
 WORKDIR /app

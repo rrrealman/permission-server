@@ -14,16 +14,12 @@ class DevelopmentConfig:
     DEBUG = True
 
     # SECRET_KEY = '123456789'
-    SQLALCHEMY_DATABASE_URI = 'postgresql://' \
-        'perm_server_user:@postgres_db:5432/perm_server_db'
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProdConfig(DevelopmentConfig):
     DEBUG = False
-
-    SQLALCHEMY_DATABASE_URI = os.getenv(
-        'POSTGRES_SQLALCHEMY_DATABASE_URI')
 
 
 config = {
