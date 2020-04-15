@@ -15,7 +15,7 @@ class DevelopmentConfig:
 
     # SECRET_KEY = '123456789'
     SQLALCHEMY_DATABASE_URI = 'postgresql://' \
-        'postgres:@postgres_db:5432/permissions_db'
+        'perm_server_user:@postgres_db:5432/perm_server_db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
@@ -33,12 +33,6 @@ config = {
 app = Flask(__name__)
 mode = os.getenv('PERMISSION_SERVER_MODE', 'dev')
 app.config.from_object(config[mode])
-
-# db = SQLAlchemy(
-#     app=app,
-#     session_options=dict(
-#         expire_on_commit=False))
-
 
 db.init_app(app)
 app.db = db

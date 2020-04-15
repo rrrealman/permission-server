@@ -1,0 +1,21 @@
+version: '2.2'
+services:
+  postgres_db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=perm_server_user
+      - POSTGRES_PASSWORD=${PERMISSION_SERVER_DB_PASSWORD}
+      - POSTGRES_DB=perm_server_db
+    ports:
+      - "5432"
+  web:
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PERMISSION_SERVER_MODE=dev
+    depends_on:
+      - postgres_db
+    command: python /app/manage.py runserver -h 0.0.0.0 -p 5000
