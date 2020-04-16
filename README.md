@@ -7,7 +7,8 @@
 
 ## Usage
 `docker exec -it permissionserver_web_1 python manage.py --help`:
-`usage: manage.py [-?]
+```
+usage: manage.py [-?]
                  {db,install_roles,grant_role_command,withdraw_role_command,shell,runserver}
                  ...
 
@@ -23,4 +24,4 @@ positional arguments:
 
 optional arguments:
   -?, --help            show this help message and exit
-`
+```
